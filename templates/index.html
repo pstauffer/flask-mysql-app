@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask App {{ version }}</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+   
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/showEntries">Show DB Entries</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Python Flask App {{ version }}</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>App Version {{ version }}</h1>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+            <img src="../static/images/test/rocket.gif" width="350" height="200">
+        </div>
+
+        <div class="col-lg-6">
+            <img src="../static/images/test/glass.gif" width="350" height="200">
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; confirm IT solutions</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
