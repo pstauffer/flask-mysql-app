@@ -47,5 +47,5 @@ gunicorn --chdir <install-dir> --bind 0.0.0.0:8000 --daemon wsgi:app
 
 
 ## Test URLs
-* http://web1.<name>.lab:8000/
-* http://web2.<name>.lab:8000/
+* http://web1.<name\>.lab:8000/
+* http://web2.<name\>.lab:8000/
