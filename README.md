@@ -9,7 +9,7 @@ This repo provides a demo-app for the [Ansible training](https://blog.confirm.ch
 
 #### on all hosts
 * PIP packages: `flask`, `flask-mysql`
-* Clone this repo -> `git clone https://pstauffer@bitbucket.org/pstauffer/flask-mysql-app.git`
+* Clone this repo -> `git clone https://github.com/pstauffer/flask-mysql-app.git`
 
 #### Red Hat
 * `epel-release` package
@@ -21,7 +21,7 @@ This repo provides a demo-app for the [Ansible training](https://blog.confirm.ch
 ### Backend
 * `mysql-server` package
 * `bind-address = 0.0.0.0`
-* Download the [mysqldump](https://bitbucket.org/pstauffer/ansible-demo-app/raw/master/students.sql)
+* Download the [mysqldump](https://raw.githubusercontent.com/pstauffer/flask-mysql-app/master/students.sql)
 * Load the dump -> `mysql --user=root --password='' < /tmp/students.sql`
 
 
