@@ -8,7 +8,7 @@ This repo provides a demo-app for the [Ansible training](https://blog.confirm.ch
 ### Frontend
 
 #### on all hosts
-* PIP packages: `flask`, `flask-mysql`
+* PIP packages: `flask`, `flask-mysql`, `markupsafe`
 * Clone this repo -> `git clone https://github.com/pstauffer/flask-mysql-app.git`
 
 #### Red Hat
