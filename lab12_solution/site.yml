@@ -1,0 +1,3 @@
+---
+- include: play-db.yml
+- include: play-web.yml
