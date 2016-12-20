@@ -1,0 +1,61 @@
+---
+- name: install git
+  package:
+    name: git
+    state: present
+
+- name: deploy application
+  git:
+    repo: '{{ flask_app_source }}'
+    dest: /opt/flask_app
+    version: '{{ flask_app_version }}'
+
+- name: install all pip packages
+  pip:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - flask
+    - flask-mysql
+    - markupsafe
+
+- name: install red hat packages
+  yum:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - python-devel
+    - python-pip
+    - MySQL-python
+    - python-gunicorn
+  when: ansible_os_family == "RedHat"
+
+- name: install debian packages
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - libmysqlclient-dev
+    - python-dev
+    - python-pip
+    - gunicorn
+  when: ansible_os_family == "Debian"
+
+- name: create version file
+  template:
+    src: app-version.txt.j2
+    dest: /tmp/app-version.txt
+    owner: root
+    group: root
+    mode: 0644
+
+- name: configure the database connection
+  template:
+    src: dbhost.cfg.j2
+    dest: /etc/dbhost.cfg
+    owner: root
+    group: root
+    mode: 0644
+
+- name: start the application
+  command: gunicorn --chdir /opt/flask_app --bind 0.0.0.0:8000 --daemon wsgi:app
