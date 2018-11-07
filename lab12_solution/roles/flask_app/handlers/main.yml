@@ -1,0 +1,3 @@
+---
+- name: restart gunicorn
+  shell: pgrep gunicorn|xargs kill; '{{ flask_gunicorn_command }}'
