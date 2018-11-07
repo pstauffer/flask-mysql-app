@@ -9,6 +9,8 @@
     repo: '{{ flask_app_source }}'
     dest: /opt/flask_app
     version: '{{ flask_app_version }}'
+  notify:
+    - restart gunicorn
 
 - name: install all pip packages
   pip:
@@ -58,4 +60,4 @@
     mode: 0644
 
 - name: start the application
-  command: gunicorn --chdir /opt/flask_app --bind 0.0.0.0:8000 --daemon wsgi:app
+  command: '{{ flask_gunicorn_command }}'

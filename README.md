@@ -42,7 +42,7 @@ python app.py
 ### with gunicorn
 
 ```bash
-gunicorn --chdir <install-dir> --bind 0.0.0.0:8000 --daemon wsgi:app
+gunicorn --pid /tmp/gunicorn.pid --chdir <install-dir> --bind 0.0.0.0:8000 --daemon wsgi:app
 ```
 
 
