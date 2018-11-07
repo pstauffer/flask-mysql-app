@@ -1,0 +1,13 @@
+# test static inventory
+[web]
+web2.test.lab
+
+[db]
+db.test.lab
+
+[test:children]
+flask_app
+
+[flask_app:children]
+web
+db

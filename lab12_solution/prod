@@ -1,0 +1,13 @@
+# production static inventory
+[web]
+web1.test.lab
+
+[db]
+db.test.lab
+
+[prod:children]
+flask_app
+
+[flask_app:children]
+web
+db
