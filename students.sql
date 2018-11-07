@@ -5,9 +5,7 @@ CREATE TABLE `AnsibleTraining`.`students` (
       PRIMARY KEY (`id`));
 
 USE AnsibleTraining;
-INSERT INTO `students` VALUES (1,'Norbert');
-INSERT INTO `students` VALUES (2,'Adrian');
-INSERT INTO `students` VALUES (3,'Bengt');
-INSERT INTO `students` VALUES (4,'Bastian');
-INSERT INTO `students` VALUES (5,'Marcus');
+INSERT INTO `students` VALUES (1,'Stuart');
+INSERT INTO `students` VALUES (2,'Kevin');
+INSERT INTO `students` VALUES (3,'Bob');
 GRANT ALL PRIVILEGES ON *.* TO 'flask'@'%' IDENTIFIED BY 'login';

@@ -1,0 +1,30 @@
+---
+- name: install mysql-server package
+  package:
+    name: mysql-server
+    state: present
+
+- name: configure mysql bind-address
+  lineinfile:
+    dest: /etc/mysql/my.cnf
+    regexp: '^bind-address'
+    line: bind-address		= 0.0.0.0
+  notify: restart mysql 
+
+- name: get the mysql dump
+  get_url:
+    url: https://raw.githubusercontent.com/pstauffer/flask-mysql-app/master/students.sql 
+    dest: /tmp/students.sql
+    owner: root
+    group: root
+    mode: 0640
+
+- name: load mysql dump
+  shell: mysql --user=root --password='' < /tmp/students.sql
+  ignore_errors: true
+
+- name: start and enable mysql
+  service:
+    name: mysql
+    state: started
+    enabled: yes

@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: goozbach.EPEL
+    when: ansible_os_family == "RedHat"
