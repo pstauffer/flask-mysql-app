@@ -1,9 +1,9 @@
 # production static inventory
 [web]
-web1.test.lab
+web1.pascal.lab
 
 [db]
-db.test.lab
+db.pascal.lab
 
 [prod:children]
 flask_app
