@@ -7,16 +7,16 @@ This repo provides a demo-app for the [Ansible training](https://blog.confirm.ch
 
 ### Frontend
 
-#### on all hosts
-* Install this PIP packages: `flask`, `flask-mysql`, `markupsafe`
-* Clone this repo -> `git clone https://github.com/pstauffer/flask-mysql-app.git`
-
 #### Red Hat
 * The epel channel is needed -> Install the `epel-release` package
 * Install this yum packages: `python-devel`, `python-pip`, `MySQL-python`, `python-gunicorn`
+* Install PIP packages: `flask`, `flask-mysql`, `markupsafe`
+* Clone this repo -> `git clone https://github.com/pstauffer/flask-mysql-app.git`
 
 #### Debian
 * Install this apt/deb packages: `libmysqlclient-dev`, `python-dev`, `python-pip`, `gunicorn`
+* Install PIP packages: `flask`, `flask-mysql`, `markupsafe`
+* Clone this repo -> `git clone https://github.com/pstauffer/flask-mysql-app.git`
 
 ### Backend
 * Install the `mysql-server` package
@@ -24,11 +24,9 @@ This repo provides a demo-app for the [Ansible training](https://blog.confirm.ch
 * Download the [mysqldump](https://raw.githubusercontent.com/pstauffer/flask-mysql-app/master/students.sql)
 * Load the dump -> `mysql --user=root --password='' < /tmp/students.sql`
 
-
 ## Configuration
-* Create a "version" file `/tmp/app-version.txt` with the tag/branch
-* Create the dbhost file `/etc/dbhost.cfg` and configure your database host. [Example](dbhost.cfg)
-
+* Create a "version" file `/tmp/app-version.txt` and add the tag/branch as content
+* Create the dbhost file `/etc/dbhost.cfg` and add your database host as content, [Example](dbhost.cfg)
 
 ## Run your application
 
