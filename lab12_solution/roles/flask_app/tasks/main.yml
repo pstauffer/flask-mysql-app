@@ -59,5 +59,16 @@
     group: root
     mode: 0644
 
+- name: get gunicorn pid state
+  stat:
+    path: /tmp/gunicorn.pid
+  register: gunicorn_pid
+
+- name: debug gunicorn_pid
+  debug:
+    msg: '{{ gunicorn_pid }}'
+    verbosity: 2
+
 - name: start the application
   command: '{{ flask_gunicorn_command }}'
+  when: gunicorn_pid.stat.exists != True

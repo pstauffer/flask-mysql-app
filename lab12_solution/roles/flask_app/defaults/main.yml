@@ -1,4 +1,4 @@
 ---
 flask_app_version: master
 
-flask_gunicorn_command: gunicorn --pid /tmp/gunicorn.pid --chdir /opt/flask_app --bind 0.0.0.0:8000 --daemon wsgi:app
+flask_gunicorn_command: /usr/bin/gunicorn --pid /tmp/gunicorn.pid --chdir /opt/flask_app --bind 0.0.0.0:8000 --daemon wsgi:app
