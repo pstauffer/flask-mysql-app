@@ -3,6 +3,8 @@
   package:
     name: mysql-server
     state: present
+  tags:
+    - flask_db
 
 - name: configure mysql bind-address
   lineinfile:
@@ -10,6 +12,8 @@
     regexp: '^bind-address'
     line: bind-address		= 0.0.0.0
   notify: restart mysql 
+  tags:
+    - flask_db
 
 - name: get the mysql dump
   get_url:
@@ -18,15 +22,21 @@
     owner: root
     group: root
     mode: 0640
+  tags:
+    - flask_db
 
 - name: load mysql dump
   shell: mysql --user=root --password='' < /tmp/students.sql
   register: mysql_output
   changed_when: false
   ignore_errors: true
+  tags:
+    - flask_db
 
 - name: start and enable mysql
   service:
     name: mysql
     state: started
     enabled: yes
+  tags:
+    - flask_db

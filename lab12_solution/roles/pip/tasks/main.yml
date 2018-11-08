@@ -3,3 +3,5 @@
   package:
     name: python-pip
     state: present
+  tags:
+    - pip

@@ -3,6 +3,8 @@
   package:
     name: git
     state: present
+  tags:
+    - flask_app
 
 - name: deploy application
   git:
@@ -11,6 +13,8 @@
     version: '{{ flask_app_version }}'
   notify:
     - restart gunicorn
+  tags:
+    - flask_app
 
 - name: install all pip packages
   pip:
@@ -20,6 +24,8 @@
     - flask
     - flask-mysql
     - markupsafe
+  tags:
+    - flask_app
 
 - name: install red hat packages
   yum:
@@ -31,6 +37,8 @@
     - MySQL-python
     - python-gunicorn
   when: ansible_os_family == "RedHat"
+  tags:
+    - flask_app
 
 - name: install debian packages
   apt:
@@ -42,6 +50,8 @@
     - python-pip
     - gunicorn
   when: ansible_os_family == "Debian"
+  tags:
+    - flask_app
 
 - name: create version file
   template:
@@ -50,6 +60,8 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - flask_app
 
 - name: configure the database connection
   template:
@@ -58,17 +70,25 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - flask_app
 
 - name: get gunicorn pid state
   stat:
     path: /tmp/gunicorn.pid
   register: gunicorn_pid
+  tags:
+    - flask_app
 
 - name: debug gunicorn_pid
   debug:
     msg: '{{ gunicorn_pid }}'
     verbosity: 2
+  tags:
+    - flask_app
 
 - name: start the application
   command: '{{ flask_gunicorn_command }}'
   when: gunicorn_pid.stat.exists != True
+  tags:
+    - flask_app
