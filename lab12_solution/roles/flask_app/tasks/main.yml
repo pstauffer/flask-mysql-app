@@ -92,3 +92,7 @@
   when: gunicorn_pid.stat.exists != True
   tags:
     - flask_app
+
+- name: show url
+  debug:
+    msg: 'http://{{ inventory_hostname }}:8000'
