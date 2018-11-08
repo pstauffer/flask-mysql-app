@@ -27,7 +27,6 @@
 
 - name: load mysql dump
   shell: mysql --user=root --password='' < /tmp/students.sql
-  register: mysql_output
   changed_when: false
   ignore_errors: true
   tags:
