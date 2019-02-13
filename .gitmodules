@@ -1,0 +1,3 @@
+[submodule "lab12_solution/roles/pstauffer.epel"]
+	path = lab12_solution/roles/pstauffer.epel
+	url = https://github.com/pstauffer/ansible-role-epel.git
