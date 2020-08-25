@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - role: goozbach.EPEL
+  - role: pstauffer.epel
     when: ansible_os_family == "RedHat"

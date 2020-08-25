@@ -1,9 +1,9 @@
 # test static inventory
 [web]
-web2.pascal.lab
+web2.confirm.lab
 
 [db]
-db.pascal.lab
+db.confirm.lab
 
 [test:children]
 flask_app

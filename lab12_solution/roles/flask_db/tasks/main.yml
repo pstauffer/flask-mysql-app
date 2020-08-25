@@ -1,16 +1,16 @@
 ---
-- name: install mysql-server package
+- name: install mariadb-server
   package:
-    name: mysql-server
+    name: mariadb-server
     state: present
   tags:
     - flask_db
 
 - name: configure mysql bind-address
   lineinfile:
-    dest: /etc/mysql/my.cnf
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
     regexp: '^bind-address'
-    line: bind-address		= 0.0.0.0
+    line: bind-address = 0.0.0.0
   notify: restart mysql 
   tags:
     - flask_db

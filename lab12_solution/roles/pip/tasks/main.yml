@@ -1,7 +1,7 @@
 ---
 - name: install pip
   package:
-    name: python-pip
+    name: python3-pip
     state: present
   tags:
     - pip
